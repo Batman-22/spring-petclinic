@@ -22,7 +22,6 @@ pipeline {
         }
         stage('build'){
             steps{
-                sh 'echo $MVN'
                 sh "$MVN clean package"
             }
         }
