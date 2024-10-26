@@ -27,6 +27,20 @@ pipeline {
                 junit testResults: 'target/surefire-reports/*.xml'
             }
         }
+
+        post {
+            success {
+                // send the success email.. to be configured
+                echo "Success"
+            }
+        }
+
+        post {
+            unsuccessful {
+                // send the failure email.. to be configured
+                echo "Failure"
+            }
+        }
     }
 }
         
