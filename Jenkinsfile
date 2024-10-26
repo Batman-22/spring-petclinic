@@ -21,5 +21,13 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+
+        stage('Reporting'){
+            steps{
+                junit testResults: 'target/surefire-reports/*.xml'
+            }
+        }
     }
 }
+        
+    
