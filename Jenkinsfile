@@ -1,9 +1,8 @@
 pipeline {
     agent {label 'JDK8'}
-    
+
     environment {
-    MAVEN_HOME = '/opt/apache-maven-3.9.9'
-    PATH = "${MAVEN_HOME}/bin:${PATH}"
+    MVN = '/opt/apache-maven-3.9.9/bin/mvn'
 }
 
     options {
@@ -23,7 +22,8 @@ pipeline {
         }
         stage('build'){
             steps{
-                sh '$MVN clean package'
+                sh 'echo $MVN'
+                sh "$MVN clean package"
             }
         }
 
