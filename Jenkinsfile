@@ -1,8 +1,11 @@
 pipeline {
     agent {label 'JDK8'}
+    
     environment {
-        MVN = '/opt/apache-maven-3.9.9/mvn'
-    }
+    MAVEN_HOME = '/opt/apache-maven-3.9.9'
+    PATH = "${MAVEN_HOME}/bin:${PATH}"
+}
+
     options {
         timeout(time:1, unit: 'HOURS')
         retry(3)
