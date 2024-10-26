@@ -27,7 +27,7 @@ pipeline {
                 junit testResults: 'target/surefire-reports/*.xml'
             }
         }
-
+    }
         post {
             success {
                 // send the success email.. to be configured
@@ -39,7 +39,6 @@ pipeline {
                 echo "Failure"
             }
         }
-    }
 }
         
     
