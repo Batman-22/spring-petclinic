@@ -1,6 +1,8 @@
 pipeline {
     agent {label 'JDK8'}
-
+    environment {
+        MVN = '/opt/apache-maven-3.9.9/mvn'
+    }
     options {
         timeout(time:1, unit: 'HOURS')
         retry(3)
@@ -18,7 +20,7 @@ pipeline {
         }
         stage('build'){
             steps{
-                sh 'mvn clean package'
+                sh '$MVN clean package'
             }
         }
 
@@ -40,5 +42,3 @@ pipeline {
             }
         }
 }
-        
-    
