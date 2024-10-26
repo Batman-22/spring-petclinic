@@ -33,9 +33,7 @@ pipeline {
                 // send the success email.. to be configured
                 echo "Success"
             }
-        }
-
-        post {
+        
             unsuccessful {
                 // send the failure email.. to be configured
                 echo "Failure"
