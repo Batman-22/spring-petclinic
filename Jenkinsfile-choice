@@ -5,10 +5,14 @@ pipeline {
     }
     stages{
         stage('clone'){
+            steps{
             git checkout
         }
+        }
         stage('build'){
+            steps{
             sh "mvn $Goal"
+        }
         }
     }
 }
