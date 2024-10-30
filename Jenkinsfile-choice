@@ -1,0 +1,14 @@
+pipeline {
+    agent {label 'JDK8'}
+    parameter {
+        choice(name: 'Goal', choices: ['package', 'clean package'], description: 'Build with a paramter')
+    }
+    stages{
+        stage('clone'){
+            git checkout
+        }
+        stage('build'){
+            sh "mvn $Goal"
+        }
+    }
+}
