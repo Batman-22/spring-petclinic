@@ -6,12 +6,12 @@ pipeline {
     stages{
         stage('clone'){
             steps{
-            git checkout
+            git branch: 'test', url: 'https://github.com/Batman-22/spring-petclinic.git'
         }
         }
         stage('build'){
             steps{
-            sh "mvn $Goal"
+            sh "mvn ${params.Goal}"
         }
         }
     }
