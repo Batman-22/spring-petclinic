@@ -3,7 +3,7 @@ pipeline {
         stages{
             stage('clone'){
                 steps{
-                    https://github.com/Batman-22/spring-petclinic.git
+                    git branch: 'test', url: 'https://github.com/Batman-22/spring-petclinic.git'
                 }
             }
             stage('build'){
