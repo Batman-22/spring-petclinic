@@ -14,7 +14,7 @@ pipeline {
         stage ('publish test results and archive the artifact'){
             steps{
                 junit stdioRetention: '', testResults: 'target/surefire-reports/*.xml'
-                archiveArtifacts artifacts: '**/*.jar', followSymlinks: false
+                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             }
         }
 
