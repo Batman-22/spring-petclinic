@@ -1,22 +1,22 @@
 pipeline {
     agent {'label JDK8'}
-        stages{
-            stage('clone'){
-                steps{
-                    git branch: 'test', url: 'https://github.com/Batman-22/spring-petclinic.git'
-                }
+    stages{
+        stage('clone'){
+            steps{
+                git branch: 'test', url: 'https://github.com/Batman-22/spring-petclinic.git'
             }
-            stage('build'){
-                steps{
-                    sh 'mvn clean package'
-                }
-            }
-            stage ('publish test results and archive the artifact'){
-                steps{
-                    junit stdioRetention: '', testResults: 'target/surefire-reports/*.xml'
-                    archiveArtifacts artifacts: '**/*.jar', followSymlinks: false
-                }
-            }
-
         }
+        stage('build'){
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+        stage ('publish test results and archive the artifact'){
+            steps{
+                junit stdioRetention: '', testResults: 'target/surefire-reports/*.xml'
+                archiveArtifacts artifacts: '**/*.jar', followSymlinks: false
+            }
+        }
+
+    }
 }
